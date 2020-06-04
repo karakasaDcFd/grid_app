@@ -6,7 +6,7 @@ $(document).on('turbolinks:load', function () {
     $('#canvas').attr('height', h);
     var canvas = $('#canvas')[0];
 
-    if (canvas.getContext) { // 未サポートブラウザでの実行を抑止
+    if (canvas != null && canvas.getContext) { // 未サポートブラウザでの実行を抑止
         var ctx = canvas.getContext('2d');
         var img = new Image();
 
