@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', function () {
     var img_url = $('#url').val();
     var w = $('#width').val();
     var h = $('#height').val();
