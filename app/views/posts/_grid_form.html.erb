@@ -1,0 +1,55 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        グリッド調整
+    </div>
+    <div class="panel-body">
+        <%= form_with url: "", class: "form-horizontal", autocomplete: "off" do |f| %>
+            <%= hidden_field_tag :url, @post.image.url %>
+            <%= hidden_field_tag :width, @post.image_width %>
+            <%= hidden_field_tag :height, @post.image_height %>
+
+            <div class="form-group">
+                <%= f.label "線の太さ", class: "col-md-5 col-sm-4 control-label" %>
+                <div class="col-md-7 col-sm-8">
+                    <div class="input-group">
+                        <%= f.number_field :size, class: 'form-control', id: 'grid-size', min: 0.1, step: 0.1, value: 1 %>
+                        <div class="input-group-addon">px</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <%= f.label "線の間隔", class: "col-md-5 col-sm-4 control-label" %>
+                <div class="col-md-7 col-sm-8">
+                    <div class="input-group">
+                        <%= f.number_field :size, class: 'form-control', id: 'grid-gap', min: 0.1, step: 0.1, value: 20 %>
+                        <div class="input-group-addon">px</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <%= f.label "線の色", class: "col-md-5 col-sm-4 control-label" %>
+                <div class="col-md-7 col-sm-8">
+                    <%= f.color_field :color, class: 'form-control', id: 'grid-color' %>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <%= f.label "保存形式", class: "col-md-5 col-sm-4 control-label" %>
+                <div class="col-md-7 col-sm-8">
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default active">
+                            <%= f.radio_button :extension, "png", checked: true %> .png
+                        </label>
+                        <label class="btn btn-default">
+                            <%= f.radio_button :extension, "jpeg" %> .jpeg
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <%= f.button yield(:button_text), class: "btn btn-primary form-control", id: "download", type: 'button' %>
+        <% end %>
+    </div>
+</div>
